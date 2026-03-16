@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,6 +242,25 @@
             transform: translateY(-2px);
         }
 
+        .btn-secondary {
+            background-color: var(--primary);
+            color: var(--bg-main);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transform: translateY(-2px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         /* About Section */
         .about-content {
             background-color: var(--bg-surface);
@@ -384,6 +404,22 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
+        /* Resume Section */
+        #resume .resume-container {
+            background: linear-gradient(145deg, var(--bg-surface), #0f1523);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        #resume .resume-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
         /* GitHub Section */
         #github .github-container {
             background: linear-gradient(145deg, var(--bg-surface), #0f1523);
@@ -522,6 +558,7 @@
             <a href="#" class="logo">Pritam's Portfolio<span class="highlight">.</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -539,8 +576,9 @@
                 <p class="tagline fade-in delay-300">
                     Passionate about problem solving, algorithms, and building real-world software. Always eager to learn new technologies and translate logic into clean, efficient code.
                 </p>
-                <div class="fade-in delay-300">
+                <div class="hero-buttons fade-in delay-300">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#resume" class="btn btn-secondary">Resume</a>
                 </div>
             </div>
             
@@ -559,14 +597,27 @@
         <h2 class="section-title fade-in">About Me</h2>
         <div class="about-content fade-in delay-100">
             <p>
-                Hello! I'm Pritam Kayal, a final-year B.Tech Computer Science student with a strong interest in software development and problem solving.
+                Hello! I'm Pritam, a beginner software developer with a strong foundation in programming fundamentals and a deep curiosity for how things work under the hood. My journey started with writing simple scripts, and it has evolved into a passion for software engineering.
             </p>
             <p>
-                Currently, I am focusing on <span class="highlight">Data Structures and Algorithms using C++</span> to strengthen my programming and logical thinking skills. I regularly practice coding problems and maintain my solutions on GitHub as part of my learning journey.
+                Currently, I am intensively learning <span class="highlight">Data Structures and Algorithms using C++</span> to strengthen my problem-solving skills and algorithmic thinking. I actively maintain GitHub repositories to document my coding journey and share my solutions.
             </p>
             <p>
                 Looking ahead, I am excited to dive into the world of Artificial Intelligence. I am actively planning to build <span class="highlight">Machine Learning projects using Python</span> to bridge the gap between theoretical algorithms and real-world data applications.
             </p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="container">
+        <div class="resume-container fade-in">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Resume</h2>
+            <p class="resume-text">
+                I am currently organizing my latest projects, skills, and academic achievements. My full professional resume will be available for download here very soon!
+            </p>
+            <a href="#" class="btn btn-secondary" style="opacity: 0.7; cursor: not-allowed;" onclick="event.preventDefault();">
+                <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i> Download Resume (Coming Soon)
+            </a>
         </div>
     </section>
 
@@ -628,7 +679,7 @@
                 </div>
                 <h3 class="project-title">DSA Practice Repository</h3>
                 <p class="project-desc">
-                    A comprehensive repository containing my solutions to various Data Structures and Algorithms problems. Organized by topics including Arrays, Linked Lists, Trees, and Dynamic Programming etc.
+                    A comprehensive repository containing my solutions to various Data Structures and Algorithms problems. Organized by topics including Arrays, Linked Lists, Trees, and Dynamic Programming.
                 </p>
                 <div class="project-tech">
                     <span>C++</span>
@@ -692,10 +743,11 @@
     <section id="contact" class="container">
         <h2 class="section-title fade-in">Get In Touch</h2>
         <p class="contact-desc fade-in delay-100">
-            Feel free to reach out if you'd like to connect, discuss ideas, collaborate on projects, or just talk about technology. I'm always open to learning opportunities and meaningful conversations.
+            Interested in collaborating, discussing ideas, or just saying hello? You can reach out to me through the platforms below. I’m always open to connecting with fellow developers and tech enthusiasts.
+
         </p>
         
-        <a href="mailto:kayalpritam65@gmail.com" class="btn btn-primary fade-in delay-200">
+        <a href="mailto:hello@example.com" class="btn btn-primary fade-in delay-200">
             Say Hello <i class="fa-regular fa-envelope" style="margin-left: 8px;"></i>
         </a>
 
