@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pritam Kayal | Aspiring Software Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Dark Theme */
+        :root {
+            --bg-main: #0a0f1a;
+            --bg-surface: #131b2f;
+            --bg-surface-hover: #1e2943;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Layout Utility */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 70px; /* Offset for nav */
+            padding-bottom: 2rem;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 400px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            padding: 10px;
+            box-shadow: 0 0 30px var(--primary-glow);
+            transition: var(--transition);
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 50px var(--primary-glow);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: var(--bg-surface);
+        }
+
+        .greeting {
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .name {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-muted);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-family: 'Fira Code', monospace;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about-content {
+            background-color: var(--bg-surface);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover .skill-icon {
+            color: var(--primary);
+        }
+
+        .skill-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-muted);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .folder-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .project-links a {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 2rem;
+            right: -2rem;
+            background-color: var(--primary);
+            color: var(--bg-main);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 3rem;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* GitHub Section */
+        #github .github-container {
+            background: linear-gradient(145deg, var(--bg-surface), #0f1523);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .github-icon-large {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .github-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-bottom: 150px;
+        }
+
+        .contact-desc {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay utilities for staggered animations */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-wrapper {
+                flex-direction: column-reverse;
+                text-align: center;
+                margin-top: 4rem;
+                gap: 2rem;
+            }
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Can be replaced with a hamburger menu logic if desired */
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+
+            .about-content {
+                padding: 2rem;
+            }
+
+            .github-container {
+                padding: 3rem 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">Pritam's Portfolio<span class="highlight">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="container hero-wrapper">
+            <div class="hero-content">
+                <span class="greeting fade-in">Hi, my name is</span>
+                <h1 class="name fade-in delay-100">Pritam Kayal.</h1>
+                <h2 class="title fade-in delay-200">Aspiring Software Developer.</h2>
+                <p class="tagline fade-in delay-300">
+                    Passionate about problem solving, algorithms, and building real-world software. Always eager to learn new technologies and translate logic into clean, efficient code.
+                </p>
+                <div class="fade-in delay-300">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                </div>
+            </div>
+            
+            <!-- Profile Picture Section -->
+            <div class="hero-image-container fade-in delay-200">
+                <div class="image-wrapper">
+                    <!-- Replace the src below with the path to your actual image (e.g., "my-photo.jpg") -->
+                    <img src="My photo.jpeg" alt="Pritam Kayal" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content fade-in delay-100">
+            <p>
+                Hello! I'm Pritam Kayal, a final-year B.Tech Computer Science student with a strong interest in software development and problem solving.
+            </p>
+            <p>
+                Currently, I am focusing on <span class="highlight">Data Structures and Algorithms using C++</span> to strengthen my programming and logical thinking skills. I regularly practice coding problems and maintain my solutions on GitHub as part of my learning journey.
+            </p>
+            <p>
+                Looking ahead, I am excited to dive into the world of Artificial Intelligence. I am actively planning to build <span class="highlight">Machine Learning projects using Python</span> to bridge the gap between theoretical algorithms and real-world data applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title fade-in">Technical Skills</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-card fade-in delay-100">
+                <i class="fa-solid fa-c skill-icon"></i>
+                <span class="skill-name">C Programming</span>
+            </div>
+            
+            <div class="skill-card fade-in delay-100">
+                <i class="fa-brands fa-cuttlefish skill-icon"></i>
+                <span class="skill-name">C++ & DSA</span>
+            </div>
+
+            <div class="skill-card fade-in delay-200">
+                <i class="fa-brands fa-python skill-icon"></i>
+                <span class="skill-name">Python</span>
+            </div>
+
+            <div class="skill-card fade-in delay-200">
+                <i class="fa-solid fa-network-wired skill-icon"></i>
+                <span class="skill-name">Algorithms</span>
+            </div>
+
+            <div class="skill-card fade-in delay-300">
+                <i class="fa-brands fa-github skill-icon"></i>
+                <span class="skill-name">Git & GitHub</span>
+            </div>
+
+            <div class="skill-card fade-in delay-300">
+                <i class="fa-brands fa-html5 skill-icon"></i>
+                <span class="skill-name">HTML5</span>
+            </div>
+
+            <div class="skill-card fade-in delay-300">
+                <i class="fa-brands fa-css3-alt skill-icon"></i>
+                <span class="skill-name">CSS3</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title fade-in">My Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <i class="fa-regular fa-folder-open folder-icon"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/pritam180802/DSA-Practice-Using-CPP" target="_blank" title="View Source"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">DSA Practice Repository</h3>
+                <p class="project-desc">
+                    A comprehensive repository containing my solutions to various Data Structures and Algorithms problems. Organized by topics including Arrays, Linked Lists, Trees, and Dynamic Programming etc.
+                </p>
+                <div class="project-tech">
+                    <span>C++</span>
+                    <span>Algorithms</span>
+                    <span>Problem Solving</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card fade-in delay-100">
+                <div class="status-badge">COMING SOON</div>
+                <div class="project-header">
+                    <i class="fa-regular fa-folder folder-icon"></i>
+                </div>
+                <h3 class="project-title">C++ Utility Software</h3>
+                <p class="project-desc">
+                    A command-line based utility application leveraging Object-Oriented Programming principles and advanced C++ features to solve real-world system tasks efficiently.
+                </p>
+                <div class="project-tech">
+                    <span>C++</span>
+                    <span>OOP</span>
+                    <span>CLI</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card fade-in delay-200">
+                <div class="status-badge">COMING SOON</div>
+                <div class="project-header">
+                    <i class="fa-regular fa-folder folder-icon"></i>
+                </div>
+                <h3 class="project-title">Predictive ML Model</h3>
+                <p class="project-desc">
+                    A machine learning pipeline built to analyze datasets and make predictions. Will implement algorithms like Linear Regression and Decision Trees using standard data science libraries.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Scikit-Learn</span>
+                    <span>Pandas</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GitHub Highlight Section -->
+    <section id="github" class="container">
+        <div class="github-container fade-in">
+            <i class="fa-brands fa-github github-icon-large"></i>
+            <h2 class="section-title" style="margin-bottom: 1.5rem; font-size: 2.5rem;">Open Source & Practice</h2>
+            <p class="github-text">
+                I believe in consistent practice and building in public. I regularly upload my Data Structures and Algorithms solutions, mini-projects, and experiments to GitHub. Check out my repositories to see my coding style and progression!
+            </p>
+            <a href="https://github.com/pritam180802" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
+                Visit My GitHub Profile
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title fade-in">Get In Touch</h2>
+        <p class="contact-desc fade-in delay-100">
+            Whether you have a question about my code, want to discuss algorithms, or just want to say hi, my inbox is always open. I'll try my best to get back to you!
+        </p>
+        
+        <a href="mailto:kayalpritam65@gmail.com" class="btn btn-primary fade-in delay-200">
+            Say Hello <i class="fa-regular fa-envelope" style="margin-left: 8px;"></i>
+        </a>
+
+        <div class="social-links fade-in delay-300">
+            <a href="https://github.com/pritam180802" target="_blank" class="social-btn" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pritam-kayal-b7973b22a" target="_blank" class="social-btn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:kayalpritam65@gmail.com" class="social-btn" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by Pritam Kayal &copy; 2026</p>
+    </footer>
+
+    <!-- Vanilla JS for Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Trigger when 15% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: Unobserve after animating once to keep it visible
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            // Select all elements with the 'fade-in' class
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
